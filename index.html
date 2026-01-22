@@ -7,75 +7,345 @@
     <title>Asociación Sistemas de Información</title>
 
     <style>
+        :root {
+            --primary-red: #ff1a1a;   /* bright red */
+            --primary-red-dark: #d00000;
+            --primary-red-light: #ffe5e5;
+            --text-dark: #222222;
+        }
+
         html {
             scroll-behavior: smooth;
         }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
             background: #ffffff;
-            color: #222;
+            color: var(--text-dark);
         }
 
+        /* HEADER */
         header {
-            background: #C30000;
+            background: var(--primary-red);
             color: white;
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 20px 40px;
+            position: relative;
+            overflow: hidden;
         }
 
-        nav {
-            background: #9E0000;
+        header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(255,255,255,0.15), transparent 60%);
+            pointer-events: none;
+        }
+
+        .header-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .logo-badge {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid white;
             display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 25px;
-            padding: 15px;
+            margin: 0 auto 10px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        header h1 {
+            margin: 10px 0 5px;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 0.98rem;
+            opacity: 0.9;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: var(--primary-red-dark);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        nav a {
+        .nav-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 16px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        .nav-brand span {
+            background: rgba(255, 255, 255, 0.16);
+            border-radius: 999px;
+            padding: 4px 10px;
+            font-size: 0.78rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 22px;
+        }
+
+        .nav-links a {
             color: white;
             text-decoration: none;
             font-weight: bold;
-            transition: .2s;
+            font-size: 0.9rem;
+            position: relative;
+            padding-bottom: 4px;
+            transition: color 0.2s;
         }
 
-        nav a:hover {
-            color: #FFD5D5;
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: #ffffff;
+            transition: width 0.2s ease-out;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-red-light);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--primary-red-light);
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* HAMBURGER (MOBILE) */
+        .nav-toggle {
+            display: none;
+            width: 34px;
+            height: 28px;
+            border: none;
+            background: transparent;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            border-radius: 999px;
+            background: white;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .nav-toggle.open span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .nav-toggle.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.open span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* MAIN CONTENT */
+        .page-background {
+            padding: 30px 10px 50px;
         }
 
         .container {
             max-width: 1100px;
-            margin: 40px auto;
-            padding: 20px;
-            background: #FFF;
-            border-radius: 10px;
-            border: 2px solid #C30000;
+            margin: 0 auto;
+            padding: 25px 20px 30px;
+            background: #ffffff;
+            border-radius: 12px;
+            border: 2px solid var(--primary-red);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                rgba(255, 26, 26, 0.5),
+                transparent
+            );
+            margin: 40px 0;
         }
 
         section {
-            margin-bottom: 60px;
+            margin-bottom: 10px;
         }
 
         section h2 {
-            margin-bottom: 10px;
-            color: #9E0000;
+            margin-bottom: 6px;
+            color: var(--primary-red-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
+        section h2 span.icon {
+            font-size: 1.2rem;
+        }
+
+        section p,
+        section li {
+            font-size: 0.96rem;
+            line-height: 1.6;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        /* CONTACT BUTTON */
+        .contact-box {
+            margin-top: 10px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: var(--primary-red);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 3px 8px rgba(255, 26, 26, 0.35);
+            transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, background 0.15s;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-red-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 5px 12px rgba(255, 26, 26, 0.5);
+        }
+
+        /* FADE-IN ANIMATIONS */
+        .fade-section {
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .fade-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* FOOTER */
         footer {
-            background: #C30000;
+            background: var(--primary-red);
             color: white;
             text-align: center;
-            padding: 15px;
-            margin-top: 40px;
+            padding: 14px 10px;
+            font-size: 0.85rem;
         }
 
-        @media (max-width: 600px) {
-            nav {
-                flex-wrap: wrap;
-                gap: 10px;
+        /* BACK TO TOP BUTTON */
+        .back-to-top {
+            position: fixed;
+            right: 18px;
+            bottom: 20px;
+            background: var(--primary-red-dark);
+            color: white;
+            border: none;
+            border-radius: 999px;
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+            display: none;
+            align-items: center;
+            gap: 5px;
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            display: flex;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                background: var(--primary-red-dark);
+                flex-direction: column;
+                align-items: center;
+                padding: 10px 0 15px;
+                gap: 12px;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.2s ease-out;
+            }
+
+            .nav-links.open {
+                max-height: 200px;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-brand span {
+                display: none;
+            }
+
+            .container {
+                padding: 20px 16px 24px;
+            }
+
+            header {
+                padding: 40px 16px 32px;
             }
         }
     </style>
@@ -83,49 +353,168 @@
 <body>
 
 <header>
-    <h1>Asociación Sistemas de Información</h1>
-    <p>Descubre cómo la tecnología transforma la gestión de la información.</p>
+    <div class="header-inner">
+        <div class="logo-badge">ASI</div>
+        <h1>Asociación Sistemas de Información</h1>
+        <p>Descubre cómo la tecnología transforma la gestión de la información.</p>
+    </div>
 </header>
 
 <nav>
-    <a href="#introduccion">Introducción</a>
-    <a href="#tipos">Tipos</a>
-    <a href="#importancia">Importancia</a>
-    <a href="#contacto">Contacto</a>
+    <div class="nav-content">
+        <div class="nav-brand">
+            ASI UAGM
+            <span>Sistemas de Información</span>
+        </div>
+        <button class="nav-toggle" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="#introduccion">Introducción</a>
+            <a href="#tipos">Tipos</a>
+            <a href="#importancia">Importancia</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+    </div>
 </nav>
 
-<div class="container">
-    
-    <section id="introduccion">
-        <h2>¿Qué son los Sistemas de Información?</h2>
-        <p>Los sistemas de información (SI) son conjuntos de componentes interrelacionados que recolectan, procesan, almacenan y distribuyen información para apoyar la toma de decisiones y el control en una organización.</p>
-    </section>
+<div class="page-background">
+    <div class="container">
+        <section id="introduccion" class="fade-section">
+            <h2><span class="icon">💻</span>¿Qué son los Sistemas de Información?</h2>
+            <p>
+                Los sistemas de información (SI) son conjuntos de componentes interrelacionados que
+                recolectan, procesan, almacenan y distribuyen información para apoyar la toma de decisiones
+                y el control en una organización.
+            </p>
+        </section>
 
-    <section id="tipos">
-        <h2>Tipos de Sistemas de Información</h2>
-        <ul>
-            <li><strong>Sistemas de Procesamiento de Transacciones (TPS):</strong> Manejan las operaciones diarias de las organizaciones.</li>
-            <li><strong>Sistemas de Información Gerencial (MIS):</strong> Ayudan en la planificación, control y toma de decisiones.</li>
-            <li><strong>Sistemas de Soporte a Decisiones (DSS):</strong> Asisten en la toma de decisiones no rutinarias.</li>
-            <li><strong>Sistemas de Información Ejecutiva (EIS):</strong> Proveen información relevante a los altos directivos.</li>
-        </ul>
-    </section>
+        <div class="section-divider"></div>
 
-    <section id="importancia">
-        <h2>Importancia de los Sistemas de Información</h2>
-        <p>Los SI permiten a las organizaciones ser más eficientes, mejorar la comunicación, optimizar los procesos y facilitar la toma de decisiones estratégicas.</p>
-    </section>
+        <section id="tipos" class="fade-section">
+            <h2><span class="icon">🧩</span>Tipos de Sistemas de Información</h2>
+            <ul>
+                <li><strong>Sistemas de Procesamiento de Transacciones (TPS):</strong> Manejan las operaciones diarias de las organizaciones.</li>
+                <li><strong>Sistemas de Información Gerencial (MIS):</strong> Ayudan en la planificación, control y toma de decisiones.</li>
+                <li><strong>Sistemas de Soporte a Decisiones (DSS):</strong> Asisten en la toma de decisiones no rutinarias.</li>
+                <li><strong>Sistemas de Información Ejecutiva (EIS):</strong> Proveen información relevante a los altos directivos.</li>
+            </ul>
+        </section>
 
-    <section id="contacto">
-        <h2>Contáctanos</h2>
-        <p>Para más información, escríbenos a: <a href="mailto:uagm.asi@outlook.com">uagm.asi@outlook.com</a></p>
-    </section>
+        <div class="section-divider"></div>
 
+        <section id="importancia" class="fade-section">
+            <h2><span class="icon">⭐</span>Importancia de los Sistemas de Información</h2>
+            <p>
+                Los SI permiten a las organizaciones ser más eficientes, mejorar la comunicación,
+                optimizar los procesos y facilitar la toma de decisiones estratégicas. Un buen sistema de
+                información se convierte en una ventaja competitiva para cualquier empresa u organización.
+            </p>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section id="contacto" class="fade-section">
+            <h2><span class="icon">📩</span>Contáctanos</h2>
+            <div class="contact-box">
+                <p>
+                    ¿Te interesa unirte a la asociación, colaborar en eventos o conocer más sobre
+                    Sistemas de Información?
+                </p>
+                <p>
+                    Escríbenos a:
+                    <strong>uagm.asi@outlook.com</strong>
+                </p>
+                <a class="btn-primary" href="mailto:uagm.asi@outlook.com">
+                    Enviar correo
+                </a>
+            </div>
+        </section>
+    </div>
 </div>
 
 <footer>
     <p>&copy; 2025 Asociación de Sistemas de Información | Todos los derechos reservados</p>
 </footer>
+
+<button class="back-to-top" aria-label="Volver arriba">
+    ↑ Arriba
+</button>
+
+<script>
+    // MOBILE MENU TOGGLE
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinksContainer = document.querySelector('.nav-links');
+
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('open');
+        navLinksContainer.classList.toggle('open');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.classList.remove('open');
+            navLinksContainer.classList.remove('open');
+        });
+    });
+
+    // SCROLLSPY (highlight active nav link)
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    function onScroll() {
+        const scrollPos = window.scrollY || window.pageYOffset;
+
+        sections.forEach(section => {
+            const top = section.offsetTop - 140; // offset for sticky nav
+            const bottom = top + section.offsetHeight;
+            const id = section.getAttribute('id');
+
+            if (scrollPos >= top && scrollPos < bottom) {
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+                });
+            }
+        });
+    }
+
+    window.addEventListener('scroll', onScroll);
+
+    // FADE-IN SECTIONS
+    const fadeSections = document.querySelectorAll('.fade-section');
+
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.15 }
+    );
+
+    fadeSections.forEach(sec => observer.observe(sec));
+
+    // BACK TO TOP BUTTON
+    const backToTopBtn = document.querySelector('.back-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
 
 </body>
 </html>
