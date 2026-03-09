@@ -1,72 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Inicio</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio | Asociación Sistemas de Información</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-<div class="header-inner">
-<h1>Asociación Sistemas de Información</h1>
-<p>Descubre cómo la tecnología transforma la gestión de la información.</p>
-</div>
+    <div class="header-inner">
+        <h1>Asociación Sistemas de Información</h1>
+        <p>Descubre cómo la tecnología transforma la gestión de la información.</p>
+    </div>
 </header>
 
 <nav>
-<div class="nav-content">
-
-<div class="nav-brand">ASI UAGM</div>
-
-<div class="nav-links">
-<a href="index.html">Inicio</a>
-<a href="tipos.html">Tipos</a>
-<a href="Importancia.html">Importancia</a>
-<a href="Productos.html">Productos</a>
-<a href="Contacto.html">Contacto</a>
-</div>
-
-</div>
+    <div class="nav-content">
+        <div class="nav-brand">ASI UAGM</div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Inicio</a>
+            <a href="tipos.html">Tipos</a>
+            <a href="Importancia.html">Importancia</a>
+            <a href="Productos.html">Productos</a>
+            <a href="Contacto.html">Contacto</a>
+        </div>
+    </div>
 </nav>
 
 <div class="page-background">
-
-<div class="container fade-section">
-
-<h2>¿Qué son los Sistemas de Información?</h2>
-
-<p>
-Los sistemas de información son conjuntos de componentes que permiten recopilar,
-procesar, almacenar y distribuir información dentro de una organización. Estos
-sistemas ayudan a mejorar la eficiencia de los procesos y facilitan la toma de
-decisiones.
-</p>
-
-</div>
-
+    <div class="container fade-section">
+        <h2>¿Qué son los Sistemas de Información?</h2>
+        <p>
+            Los sistemas de información son conjuntos de elementos interrelacionados que permiten recopilar,
+            procesar, almacenar y distribuir datos dentro de una organización. Su función principal es apoyar
+            la administración de la información para que los procesos sean más eficientes, organizados y útiles
+            al momento de tomar decisiones.
+        </p>
+        <p>
+            En la actualidad, estos sistemas son esenciales en empresas, universidades, hospitales y muchas
+            otras instituciones, ya que facilitan el manejo de grandes cantidades de información de una manera
+            rápida, precisa y segura.
+        </p>
+    </div>
 </div>
 
 <footer>
-<p>© 2025 Asociación Sistemas de Información</p>
+    <p>&copy; 2025 Asociación de Sistemas de Información | Todos los derechos reservados</p>
 </footer>
 
 <script>
-
 const fadeSections = document.querySelectorAll('.fade-section');
 
 const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.classList.add('visible');
-}
-});
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
 }, { threshold: 0.2 });
 
 fadeSections.forEach(section => observer.observe(section));
-
 </script>
 
 </body>
