@@ -18,11 +18,6 @@
 <nav>
     <div class="nav-content">
         <div class="nav-brand">ASI UAGM</div>
-        <button class="nav-toggle" aria-label="Abrir menú">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
         <div class="nav-links">
             <a href="index.html">Inicio</a>
             <a href="tipos.html">Tipos</a>
@@ -34,21 +29,18 @@
 </nav>
 
 <div class="page-background">
-        <div class="container fade-section">
+    <div class="container fade-section">
+        <h2>Productos</h2>
 
-        <section>
-            <h2>Productos</h2>
-
-            <div class="product-card">
-                <h3>Memoria USB SanDisk 32GB</h3>
-                <img src="img/sandisk.jpg" alt="Memoria USB SanDisk">
-                <p>
-                    La memoria USB SanDisk es una opción práctica y confiable para guardar documentos,
-                    fotos, videos y otros archivos importantes para nosotros los estudiantes.
-                </p>
-                <p class="price">$19.99</p>
-            </div>
-        </section>
+        <div class="product-card">
+            <h3>Memoria USB SanDisk</h3>
+            <img src="img/sandisk.jpg" alt="Memoria USB SanDisk">
+            <p>
+                La memoria USB SanDisk es una opción práctica y confiable para guardar documentos, fotos,
+                videos y otros archivos importantes de manera segura y accesible.
+            </p>
+            <p class="price">$19.99</p>
+        </div>
     </div>
 </div>
 
@@ -57,7 +49,6 @@
 </footer>
 
 <script>
-
 const fadeSections = document.querySelectorAll('.fade-section');
 
 const observer = new IntersectionObserver((entries) => {
@@ -66,14 +57,9 @@ const observer = new IntersectionObserver((entries) => {
             entry.target.classList.add('visible');
         }
     });
-}, {
-    threshold: 0.2
-});
+}, { threshold: 0.2 });
 
-fadeSections.forEach(section => {
-    observer.observe(section);
-});
-
+fadeSections.forEach(section => observer.observe(section));
 </script>
 
 </body>
