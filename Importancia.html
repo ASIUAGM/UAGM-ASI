@@ -18,11 +18,6 @@
 <nav>
     <div class="nav-content">
         <div class="nav-brand">ASI UAGM</div>
-        <button class="nav-toggle" aria-label="Abrir menú">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
         <div class="nav-links">
             <a href="index.html">Inicio</a>
             <a href="tipos.html">Tipos</a>
@@ -34,17 +29,19 @@
 </nav>
 
 <div class="page-background">
-        <div class="container fade-section">
-        <section>
-            <h2>Importancia de los Sistemas de Información</h2>
-            <p>
-                Los sistemas de información son fundamentales porque permiten organizar y administrar datos de
-                manera rápida y precisa. Además, ayudan a mejorar la eficiencia operativa, facilitan la
-                comunicación dentro de las organizaciones y apoyan la toma de decisiones estratégicas. En la
-                actualidad, contar con un buen sistema de información representa una ventaja competitiva para
-                cualquier empresa o institución.
-            </p>
-        </section>
+    <div class="container fade-section">
+        <h2>Importancia de los Sistemas de Información</h2>
+        <p>
+            Los sistemas de información son importantes porque permiten organizar y administrar datos de forma
+            rápida, precisa y confiable. Gracias a ellos, las organizaciones pueden mejorar su eficiencia,
+            reducir errores y responder con mayor agilidad a diferentes necesidades.
+        </p>
+        <p>
+            Además, estos sistemas facilitan la comunicación entre departamentos, ayudan en la planificación
+            estratégica y apoyan la toma de decisiones basadas en información real. En un mundo donde la
+            tecnología tiene un papel fundamental, los sistemas de información se han convertido en una
+            herramienta esencial para el éxito de cualquier institución o empresa.
+        </p>
     </div>
 </div>
 
@@ -53,7 +50,6 @@
 </footer>
 
 <script>
-
 const fadeSections = document.querySelectorAll('.fade-section');
 
 const observer = new IntersectionObserver((entries) => {
@@ -62,14 +58,9 @@ const observer = new IntersectionObserver((entries) => {
             entry.target.classList.add('visible');
         }
     });
-}, {
-    threshold: 0.2
-});
+}, { threshold: 0.2 });
 
-fadeSections.forEach(section => {
-    observer.observe(section);
-});
-
+fadeSections.forEach(section => observer.observe(section));
 </script>
 
 </body>
