@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importancia | Asociación Sistemas de Información</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <h1>Asociación Sistemas de Información</h1>
+        <p>Descubre cómo la tecnología transforma la gestión de la información.</p>
+    </div>
+</header>
+
+<nav>
+    <div class="nav-content">
+        <div class="nav-brand">ASI UAGM</div>
+        <button class="nav-toggle" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="tipos.html">Tipos</a>
+            <a href="Importancia.html" class="active">Importancia</a>
+            <a href="Productos.html">Productos</a>
+            <a href="Contacto.html">Contacto</a>
+        </div>
+    </div>
+</nav>
+
+<div class="page-background">
+        <div class="container fade-section">
+        <section>
+            <h2>Importancia de los Sistemas de Información</h2>
+            <p>
+                Los sistemas de información son fundamentales porque permiten organizar y administrar datos de
+                manera rápida y precisa. Además, ayudan a mejorar la eficiencia operativa, facilitan la
+                comunicación dentro de las organizaciones y apoyan la toma de decisiones estratégicas. En la
+                actualidad, contar con un buen sistema de información representa una ventaja competitiva para
+                cualquier empresa o institución.
+            </p>
+        </section>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Asociación de Sistemas de Información | Todos los derechos reservados</p>
+</footer>
+
+<script>
+
+const fadeSections = document.querySelectorAll('.fade-section');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+fadeSections.forEach(section => {
+    observer.observe(section);
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+:root {
+    --primary-red: #ff1a1a;
+    --primary-red-dark: #d00000;
+    --primary-red-light: #ffe5e5;
+    --text-dark: #222222;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: white;
+    color: var(--text-dark);
+}
+
+/* HEADER */
+
+header {
+    background: var(--primary-red);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* NAVBAR */
+
+nav {
+    background: var(--primary-red-dark);
+    position: sticky;
+    top: 0;
+}
+
+.nav-content {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+}
+
+.nav-brand {
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: var(--primary-red-light);
+}
+
+/* MAIN CONTAINER */
+
+.page-background {
+    padding: 30px 10px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px;
+    border: 2px solid var(--primary-red);
+    border-radius: 12px;
+}
+
+/* TEXT */
+
+h2 {
+    color: var(--primary-red-dark);
+}
+
+p, li {
+    line-height: 1.7;
+}
+
+/* PRODUCT CARD */
+
+.product-card {
+    border: 2px solid var(--primary-red);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    margin: auto;
+}
+
+.product-card img {
+    width: 250px;
+}
+
+.price {
+    color: var(--primary-red-dark);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* BUTTON */
+
+.btn-primary {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 18px;
+    background: var(--primary-red);
+    color: white;
+    text-decoration: none;
+    border-radius: 999px;
+}
+
+.btn-primary:hover {
+    background: var(--primary-red-dark);
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--primary-red);
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* ANIMATION */
+
+.fade-section {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
